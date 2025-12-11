@@ -1,0 +1,1 @@
+This demo uses SQLite via Prisma, which works on Windows, Linux, and macOS with zero setup — Prisma ships with its own SQLite engine, so readers don’t need SQLite installed on their system.

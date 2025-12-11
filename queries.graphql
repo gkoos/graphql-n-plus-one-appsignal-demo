@@ -1,0 +1,59 @@
+# N+1 Query Problem Demonstration
+#
+# This query demonstrates the N+1 problem:
+# - 1 query to fetch all posts
+# - N additional queries (one for each post) to fetch the author
+#
+# If you have 10 posts, this will result in 11 database queries total.
+# With 100 posts, it becomes 101 queries.
+
+query GetPostsWithAuthors {
+  posts {
+    id
+    title
+    author {
+      id
+      name
+    }
+  }
+}
+
+# Same query but fetching users and their posts
+# This will also demonstrate the N+1 problem:
+# - 1 query to fetch all users
+# - N additional queries (one for each user) to fetch their posts
+
+query GetUsersWithPosts {
+  users {
+    id
+    name
+    posts {
+      id
+      title
+    }
+  }
+}
+
+# Combined query showing multiple N+1 problems at once
+query GetAllData {
+  users {
+    id
+    name
+    posts {
+      id
+      title
+      author {
+        id
+        name
+      }
+    }
+  }
+  posts {
+    id
+    title
+    author {
+      id
+      name
+    }
+  }
+}
