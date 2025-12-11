@@ -1,5 +1,9 @@
 import { prisma } from "../prismaClient.js";
+import { createLoaders } from "./loaders.js";
 
-export const context = {
-  db: prisma
-};
+export function getContext() {
+  return {
+    db: prisma,
+    loaders: createLoaders(prisma)
+  };
+}

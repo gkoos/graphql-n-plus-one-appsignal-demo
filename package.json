@@ -12,11 +12,12 @@
   },
   "dependencies": {
     "@apollo/server": "^5.2.0",
-    "@as-integrations/express4": "^1.1.2",
     "@appsignal/nodejs": "^3.7.3",
+    "@as-integrations/express4": "^1.1.2",
     "@prisma/adapter-better-sqlite3": "^7.1.0",
     "@prisma/client": "^7.1.0",
     "better-sqlite3": "^12.5.0",
+    "dataloader": "^2.2.3",
     "dotenv": "^17.2.3",
     "express": "^4.22.1",
     "graphql": "^16.12.0",

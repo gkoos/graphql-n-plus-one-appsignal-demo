@@ -3,7 +3,7 @@ import express from "express";
 import { ApolloServer } from "@apollo/server";
 import { expressMiddleware } from "@as-integrations/express4";
 import { expressErrorHandler } from "@appsignal/nodejs";
-import { context } from "./context.js";
+import { getContext } from "./context.js";
 import { typeDefs } from "./schema.js";
 import { resolvers } from "./resolvers.js";
 
@@ -25,7 +25,7 @@ app.use(
   "/graphql",
   express.json(),
   expressMiddleware(server, {
-    context: async () => context
+    context: async () => getContext()
   })
 );
 

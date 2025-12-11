@@ -10,10 +10,10 @@ export const resolvers = {
     }
   },
   Post: {
-    author: async (post, _, { db }) => {
-      // This is the N+1 problem: called once per post
-      console.log(`🔄 Query: Fetching author for post ${post.id}`);
-      return db.user.findUnique({ where: { id: post.authorId } });
+    author: async (post, _, { loaders }) => {
+      // Using DataLoader to batch and cache user queries
+      console.log(`✅ Loading author for post ${post.id} via DataLoader`);
+      return loaders.userLoader.load(post.authorId);
     }
   },
   User: {
