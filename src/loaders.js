@@ -2,8 +2,6 @@ import DataLoader from 'dataloader';
 
 // Batch function to load multiple users by their IDs
 async function batchLoadUsers(userIds, db) {
-  console.log(`🔄 Batched query: Fetching ${userIds.length} users`);
-  
   // Fetch all users in a single query
   const users = await db.user.findMany({
     where: {
