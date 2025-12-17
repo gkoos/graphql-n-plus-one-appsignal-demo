@@ -61,7 +61,7 @@ APPSIGNAL_PUSH_API_KEY=your-appsignal-push-api-key
 Start the server in development mode with hot reload:
 
 ```bash
-npm run dev
+npm run start
 ```
 
 The server will be running at `http://localhost:4000/graphql`.
